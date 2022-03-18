@@ -1,4 +1,4 @@
-# iac-aws-backend-tf-module: Terraform module to set up a Terraform backend based on S3 and DynamoDB
+# iac-tf-aws-backend-module: Terraform module to set up a Terraform backend based on S3 and DynamoDB
 
 Creates a S3 bucket for state storage and a DynamoDB table for state locking.
  
