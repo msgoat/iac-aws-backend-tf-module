@@ -16,8 +16,9 @@ resource aws_s3_bucket_server_side_encryption_configuration backend {
   bucket = aws_s3_bucket.backend.id
   rule {
     apply_server_side_encryption_by_default {
-      sse_algorithm = "AES256"
+      sse_algorithm = "aws:kms"
     }
+    bucket_key_enabled = true
   }
 }
 
@@ -26,6 +27,8 @@ resource aws_s3_bucket_public_access_block block_public_access {
   bucket = aws_s3_bucket.backend.id
   block_public_acls   = true
   block_public_policy = true
+  ignore_public_acls      = true
+  restrict_public_buckets = true
 }
 
 // add a bucket policy which denies HTTP access
